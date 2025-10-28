@@ -123,6 +123,11 @@ const Index = () => {
             <div className="h-1 w-24 bg-primary mx-auto mb-12"></div>
             
             <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg">
+              <img 
+                src="https://cdn.poehali.dev/projects/0b9225d3-88ee-4d8a-bf92-0a1ee2f666ff/files/99d38325-4d70-4139-a96f-98b418b13d94.jpg" 
+                alt="Учебный процесс в школе"
+                className="rounded-xl w-full mb-8 shadow-md"
+              />
               <p className="text-lg text-foreground mb-6 leading-relaxed">
                 Частная школа «Ступени образования» — это современное образовательное учреждение, 
                 где каждый ребенок получает качественные знания в комфортной и безопасной среде.
