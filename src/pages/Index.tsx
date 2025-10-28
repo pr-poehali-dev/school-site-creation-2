@@ -12,10 +12,15 @@ const Index = () => {
     phone: "",
     message: ""
   });
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
+  };
+
+  const handleMenuClick = () => {
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -37,9 +42,31 @@ const Index = () => {
               <a href="#news" className="text-foreground hover:text-primary transition-colors font-medium">Новости</a>
               <a href="#contacts" className="text-foreground hover:text-primary transition-colors font-medium">Контакты</a>
             </div>
-            <Button className="bg-primary hover:bg-primary/90">Записаться</Button>
+            <div className="hidden md:block">
+              <Button className="bg-primary hover:bg-primary/90">Записаться</Button>
+            </div>
+            <button 
+              className="md:hidden p-2"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Открыть меню"
+            >
+              <Icon name={isMobileMenuOpen ? "X" : "Menu"} size={28} />
+            </button>
           </div>
         </div>
+        
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-border">
+            <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+              <a href="#home" onClick={handleMenuClick} className="text-foreground hover:text-primary transition-colors font-medium py-2">Главная</a>
+              <a href="#about" onClick={handleMenuClick} className="text-foreground hover:text-primary transition-colors font-medium py-2">О школе</a>
+              <a href="#teachers" onClick={handleMenuClick} className="text-foreground hover:text-primary transition-colors font-medium py-2">Преподаватели</a>
+              <a href="#news" onClick={handleMenuClick} className="text-foreground hover:text-primary transition-colors font-medium py-2">Новости</a>
+              <a href="#contacts" onClick={handleMenuClick} className="text-foreground hover:text-primary transition-colors font-medium py-2">Контакты</a>
+              <Button className="bg-primary hover:bg-primary/90 w-full">Записаться</Button>
+            </div>
+          </div>
+        )}
       </nav>
 
       <section id="home" className="pt-32 pb-20 bg-gradient-to-b from-muted to-white">
